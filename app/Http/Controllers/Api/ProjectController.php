@@ -21,4 +21,17 @@ class ProjectController extends Controller
 
         return response()->json($response);
     }
+
+    public function show($id) {
+
+        $project = Project::with("type", "technologies")->find($id);
+        
+        $response = [
+            "success" => true,
+            "results" => $project
+        ];
+
+        return response()->json($response);
+
+    }
 }
