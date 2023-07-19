@@ -12,7 +12,9 @@ class ProjectController extends Controller
     {
         // $projects = Project::all();
 
-        $projects = Project::with("type", "technologies")->paginate(4);
+        // $projects = Project::with("type", "technologies")->paginate(4);
+
+        $projects = Project::select('id', 'name', 'image')->paginate(4);
 
         $response = [
             "success" => true,
